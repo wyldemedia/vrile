@@ -1,0 +1,19 @@
+[build]
+  functions = "netlify/functions"
+  
+[build.environment]
+  NODE_VERSION = "18"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Redirect rules
+[[redirects]]
+  from = "/payment-success.html"
+  to = "/thankyou.html"
+  status = 301
+
+# Environment variables for local development
+[dev]
+  functions = "netlify/functions"
+  publish = "."

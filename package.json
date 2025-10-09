@@ -1,0 +1,29 @@
+{
+  "name": "vrile-landing-page",
+  "version": "1.0.0",
+  "description": "VRile landing page with Stripe payment integration",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build process needed for static site'",
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "stripe": "^14.9.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.10.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/vrile-landing.git"
+  },
+  "keywords": [
+    "netlify",
+    "stripe",
+    "payments",
+    "landing-page"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
