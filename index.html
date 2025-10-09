@@ -732,6 +732,9 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
   <!-- main-js-Link -->
   <script src="js/main.js"></script>
   
+  <!-- Privacy-focused download script -->
+  <script src="privacy-download.js"></script>
+  
   <!-- Stripe.js -->
   <script src="https://js.stripe.com/v3/"></script>
 
@@ -1012,7 +1015,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
     });
     
     // Show download links to user instead of forcing downloads
-    showDownloadLinks(downloadInfo);
+    showPrivateDownloadLinks(downloadInfo);
     
     // No auto-redirect - let user control when they're done
   }
@@ -1054,7 +1057,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
     
     let downloadHtml = `
       <h3 style="margin-top: 0; color: #333; font-size: 24px;">🎉 Payment Successful!</h3>
-      <p style="color: #666; margin-bottom: 25px; font-size: 16px;">Your VRile Last Longer Program is ready!</p>
+      <p style="color: #666; margin-bottom: 25px; font-size: 16px;">Your VRile Last Longer Program is ready for private download.</p>
     `;
     
     if (isMobile) {
