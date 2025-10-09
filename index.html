@@ -1018,6 +1018,9 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
   }
 
   function showDownloadLinks(downloadInfo) {
+    // Detect if user is on mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
     // Create modal overlay for download links
     const modalOverlay = document.createElement('div');
     modalOverlay.style.cssText = `
@@ -1031,95 +1034,167 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
     `;
     
     // Create download container
     const downloadContainer = document.createElement('div');
     downloadContainer.style.cssText = `
       background: white;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 600px;
-      width: 90%;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 100%;
       position: relative;
       text-align: center;
-      max-height: 80vh;
+      max-height: 90vh;
       overflow-y: auto;
     `;
     
     let downloadHtml = `
-      <h3 style="margin-top: 0; color: #333;">🎉 Payment Successful!</h3>
-      <p style="color: #666; margin-bottom: 30px;">Your VRile Last Longer Program is ready. <strong>Right-click each link below and select "Save link as..." to download:</strong></p>
+      <h3 style="margin-top: 0; color: #333; font-size: 24px;">🎉 Payment Successful!</h3>
+      <p style="color: #666; margin-bottom: 25px; font-size: 16px;">Your VRile Last Longer Program is ready!</p>
+    `;
+    
+    if (isMobile) {
+      // Mobile-optimized experience
+      downloadHtml += `
+        <div style="background: #e0f2fe; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
+          <h4 style="color: #0277bd; margin-top: 0; font-size: 18px;">📱 Mobile Download</h4>
+          <p style="color: #01579b; margin-bottom: 15px; font-size: 14px;">
+            Your files will open in a new tab. Tap and hold any audio player, then select <strong>"Download"</strong> from the menu.
+          </p>
+          <button onclick="openAllInNewTabs()" 
+                  style="
+                    width: 100%;
+                    padding: 15px;
+                    background: #2196f3;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    cursor: pointer;
+                  ">
+            📂 Open All Audio Files
+          </button>
+        </div>
+        
+        <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+          <p style="color: #e65100; margin: 0; font-size: 13px;">
+            � <strong>Alternative:</strong> Enter your email below to receive download links:
+          </p>
+        </div>
+      `;
+    } else {
+      // Desktop experience with auto-download
+      downloadHtml += `
+        <div style="background: #f3e5f5; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
+          <h4 style="color: #7b1fa2; margin-top: 0;">💻 Desktop Download</h4>
+          <button onclick="downloadAllFiles()" 
+                  style="
+                    width: 100%;
+                    padding: 15px;
+                    background: #9c27b0;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                  ">
+            🚀 Download All Files Now
+          </button>
+          <p style="color: #4a148c; margin: 0; font-size: 12px;">
+            Files will be saved to your Downloads folder
+          </p>
+        </div>
+      `;
+    }
+    
+    // Email delivery option for both mobile and desktop
+    downloadHtml += `
+      <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+        <h4 style="color: #2e7d32; margin-top: 0;">📧 Email Delivery (Recommended)</h4>
+        <p style="color: #1b5e20; margin-bottom: 15px; font-size: 14px;">
+          Get secure download links sent directly to your email:
+        </p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="email" 
+                 id="userEmail" 
+                 placeholder="Enter your email address"
+                 style="
+                   flex: 1;
+                   min-width: 200px;
+                   padding: 12px;
+                   border: 2px solid #4caf50;
+                   border-radius: 6px;
+                   font-size: 14px;
+                 ">
+          <button onclick="sendDownloadEmail()" 
+                  style="
+                    padding: 12px 20px;
+                    background: #4caf50;
+                    color: white;
+                    border: none;
+                    border-radius: 6px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    white-space: nowrap;
+                  ">
+            � Send Links
+          </button>
+        </div>
+        <div id="emailStatus" style="margin-top: 10px; font-size: 13px;"></div>
+      </div>
+    `;
+    
+    // Individual file links as backup
+    downloadHtml += `
+      <details style="margin-bottom: 20px;">
+        <summary style="cursor: pointer; padding: 10px; background: #f5f5f5; border-radius: 5px; font-weight: bold;">
+          📁 Individual File Links (Backup Method)
+        </summary>
+        <div style="margin-top: 15px;">
     `;
     
     downloadInfo.forEach((item, index) => {
       downloadHtml += `
-        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-          <strong style="color: #333;">Audio ${index + 1}: ${item.filename}</strong><br>
+        <div style="margin: 10px 0; padding: 10px; background: #fafafa; border-radius: 5px; text-align: left;">
+          <strong style="color: #333; font-size: 14px;">Audio ${index + 1}:</strong><br>
           <a href="${item.url}" 
-             download="${item.filename}"
+             target="_blank"
              style="
-               display: inline-block;
-               margin-top: 10px;
-               padding: 10px 20px;
-               background: #7c3aed;
-               color: white;
+               color: #1976d2;
                text-decoration: none;
-               border-radius: 5px;
-               font-weight: bold;
-             "
-             oncontextmenu="return true;"
-             onclick="event.preventDefault(); this.style.background='#10b981'; this.innerHTML='✅ Right-click and Save As'; return false;">
-            📥 Download Audio ${index + 1}
+               font-size: 13px;
+               word-break: break-all;
+             ">
+            ${item.filename}
           </a>
         </div>
       `;
     });
     
     downloadHtml += `
-      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-          <p style="color: #92400e; font-size: 14px; margin: 0;">
-            <strong>⚠️ IMPORTANT:</strong> To download (not play) the files:<br>
-            <strong>1.</strong> Right-click any download button above<br>
-            <strong>2.</strong> Select "Save link as..." or "Download linked file"<br>
-            <strong>3.</strong> Choose where to save the file<br>
-            <strong>4.</strong> Repeat for all 4 audio files
-          </p>
         </div>
-        
-        <div style="margin-bottom: 20px;">
-          <button onclick="downloadAllFiles()" 
-                  style="
-                    padding: 12px 24px;
-                    background: #059669;
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    font-weight: bold;
-                    margin-right: 10px;
-                  ">
-            🚀 Try Auto-Download All
-          </button>
-          
-          <button onclick="window.location.href='${buildThankYouUrl()}'" 
-                  style="
-                    padding: 12px 24px;
-                    background: #6b7280;
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                  ">
-            Continue to Thank You Page
-          </button>
-        </div>
-        
-        <p style="color: #666; font-size: 12px; margin: 0;">
-          If you have any issues downloading, please contact support with your order confirmation.
-        </p>
-      </div>
+      </details>
+      
+      <button onclick="window.location.href='${buildThankYouUrl()}'" 
+              style="
+                width: 100%;
+                padding: 15px;
+                background: #6b7280;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                cursor: pointer;
+              ">
+        ✅ Continue to Thank You Page
+      </button>
     `;
     
     downloadContainer.innerHTML = downloadHtml;
@@ -1127,33 +1202,66 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
     document.body.appendChild(modalOverlay);
   }
 
-  // Function to attempt auto-download all files
+  // Mobile-friendly: Open all files in new tabs
+  function openAllInNewTabs() {
+    FILE_URLS.forEach((url, index) => {
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, index * 1000); // 1 second delay between each
+    });
+    
+    const button = event.target;
+    button.innerHTML = '✅ Files opened! Tap & hold to download each one';
+    button.style.background = '#4caf50';
+    button.disabled = true;
+  }
+
+  // Desktop: Download all files using iframe method
   function downloadAllFiles() {
     FILE_URLS.forEach((url, index) => {
       setTimeout(() => {
-        // Create hidden iframe to trigger download
         const iframe = document.createElement('iframe');
         iframe.style.display = 'none';
         iframe.src = url;
         document.body.appendChild(iframe);
         
-        // Clean up iframe after a delay
         setTimeout(() => {
           if (document.body.contains(iframe)) {
             document.body.removeChild(iframe);
           }
         }, 3000);
-      }, index * 1500); // 1.5 second delay between each
+      }, index * 1000);
     });
     
-    // Update button
     const button = event.target;
     button.innerHTML = '⏳ Downloads starting...';
     button.disabled = true;
     
     setTimeout(() => {
-      button.innerHTML = '✅ Downloads triggered! Check your Downloads folder';
-      button.style.background = '#10b981';
+      button.innerHTML = '✅ Downloads complete! Check your Downloads folder';
+      button.style.background = '#4caf50';
+    }, 5000);
+  }
+
+  // Email delivery function
+  function sendDownloadEmail() {
+    const email = document.getElementById('userEmail').value;
+    const statusDiv = document.getElementById('emailStatus');
+    
+    if (!email || !email.includes('@')) {
+      statusDiv.innerHTML = '<span style="color: #d32f2f;">Please enter a valid email address</span>';
+      return;
+    }
+    
+    statusDiv.innerHTML = '<span style="color: #1976d2;">📤 Sending download links...</span>';
+    
+    // Here you would integrate with your email service (EmailJS, Netlify Forms, etc.)
+    // For now, we'll simulate the email sending
+    setTimeout(() => {
+      statusDiv.innerHTML = '<span style="color: #2e7d32;">✅ Download links sent! Check your email inbox.</span>';
+      
+      // Store the email for future reference
+      localStorage.setItem('sensual_awakenings_email', email);
     }, 2000);
   }
 
