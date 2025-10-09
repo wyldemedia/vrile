@@ -979,6 +979,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
         } else if (paymentIntent && paymentIntent.status === 'succeeded') {
           // Payment succeeded
           messagesDiv.innerHTML = '<p style="color: green;">Payment successful! Starting downloads...</p>';
+          console.log('Payment succeeded, PaymentIntent ID:', paymentIntent.id);
           
           // Store payment success
           localStorage.setItem('sensual_awakenings_paid', 'true');
@@ -986,6 +987,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
           
           setTimeout(() => {
             // Close modal and start downloads
+            console.log('About to start downloads...');
             document.body.removeChild(container.parentNode);
             startDownloadThenRedirect();
           }, 1500);
@@ -1000,15 +1002,23 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
   }
 
   function startDownloadThenRedirect() {
+    console.log('startDownloadThenRedirect called, downloading', FILE_URLS.length, 'files');
+    
     // Download all files in the FILE_URLS array
     FILE_URLS.forEach((url, index) => {
+      console.log(`Starting download ${index + 1}:`, url);
+      
       // Extract filename from URL or provide a meaningful name
       const filename = url.split('/').pop() || `audio-file-${index + 1}.mp3`;
       
       // Force download using fetch and blob
       fetch(url)
-        .then(response => response.blob())
+        .then(response => {
+          console.log(`Download ${index + 1} response:`, response.status, response.statusText);
+          return response.blob();
+        })
         .then(blob => {
+          console.log(`Download ${index + 1} blob size:`, blob.size);
           const a = document.createElement('a');
           const objectUrl = URL.createObjectURL(blob);
           a.href = objectUrl;
@@ -1016,6 +1026,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
           a.style.display = 'none';
           document.body.appendChild(a);
           a.click();
+          console.log(`Download ${index + 1} triggered:`, filename);
           document.body.removeChild(a);
           
           // Clean up the object URL after a delay
@@ -1034,6 +1045,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
         });
     });
 
+    console.log('All downloads triggered, redirecting in', REDIRECT_DELAY_MS, 'ms to:', buildThankYouUrl());
     // Redirect to thank-you (with tracking params)
     setTimeout(() => {
       window.location.href = buildThankYouUrl();
@@ -1047,15 +1059,26 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
     // Check if user has already paid (you might store this in localStorage or check with your server)
     const hasPaid = localStorage.getItem('sensual_awakenings_paid') === 'true';
     
+    console.log('Purchase clicked, hasPaid:', hasPaid);
+    
     if (hasPaid) {
       // User has already paid, proceed with download
+      console.log('User has already paid, starting download');
       startDownloadThenRedirect();
     } else {
       // Show payment form
+      console.log('User needs to pay, showing payment form');
       createInlinePaymentForm();
       // Alternative: redirect to Stripe Checkout
       // createCheckoutSession();
     }
+  }
+
+  // TEST FUNCTION - Remove this in production
+  function testDownloadWithoutPayment() {
+    console.log('TEST: Starting downloads without payment');
+    localStorage.setItem('sensual_awakenings_paid', 'true');
+    startDownloadThenRedirect();
   }
 
   // Intercept ALL links that point to download.php anywhere on the page
