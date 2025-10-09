@@ -1014,11 +1014,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
     // Show download links to user instead of forcing downloads
     showDownloadLinks(downloadInfo);
     
-    console.log('Download links shown, redirecting in', REDIRECT_DELAY_MS + 10000, 'ms to:', buildThankYouUrl());
-    // Redirect after 10 seconds to give user time to download
-    setTimeout(() => {
-      window.location.href = buildThankYouUrl();
-    }, REDIRECT_DELAY_MS + 10000);
+    // No auto-redirect - let user control when they're done
   }
 
   function showDownloadLinks(downloadInfo) {
@@ -1047,11 +1043,13 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
       width: 90%;
       position: relative;
       text-align: center;
+      max-height: 80vh;
+      overflow-y: auto;
     `;
     
     let downloadHtml = `
       <h3 style="margin-top: 0; color: #333;">🎉 Payment Successful!</h3>
-      <p style="color: #666; margin-bottom: 30px;">Your VRile Last Longer Program is ready. Click each link below to download your audio files:</p>
+      <p style="color: #666; margin-bottom: 30px;">Your VRile Last Longer Program is ready. <strong>Right-click each link below and select "Save link as..." to download:</strong></p>
     `;
     
     downloadInfo.forEach((item, index) => {
@@ -1070,7 +1068,8 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
                border-radius: 5px;
                font-weight: bold;
              "
-             target="_blank">
+             oncontextmenu="return true;"
+             onclick="event.preventDefault(); this.style.background='#10b981'; this.innerHTML='✅ Right-click and Save As'; return false;">
             📥 Download Audio ${index + 1}
           </a>
         </div>
@@ -1079,30 +1078,83 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
     
     downloadHtml += `
       <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-        <p style="color: #666; font-size: 14px;">
-          <strong>Instructions:</strong><br>
-          • Right-click any download button and select "Save link as..." if direct click doesn't work<br>
-          • Files will be saved to your Downloads folder<br>
-          • You'll be redirected to the thank you page in 10 seconds
+        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+          <p style="color: #92400e; font-size: 14px; margin: 0;">
+            <strong>⚠️ IMPORTANT:</strong> To download (not play) the files:<br>
+            <strong>1.</strong> Right-click any download button above<br>
+            <strong>2.</strong> Select "Save link as..." or "Download linked file"<br>
+            <strong>3.</strong> Choose where to save the file<br>
+            <strong>4.</strong> Repeat for all 4 audio files
+          </p>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+          <button onclick="downloadAllFiles()" 
+                  style="
+                    padding: 12px 24px;
+                    background: #059669;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    margin-right: 10px;
+                  ">
+            🚀 Try Auto-Download All
+          </button>
+          
+          <button onclick="window.location.href='${buildThankYouUrl()}'" 
+                  style="
+                    padding: 12px 24px;
+                    background: #6b7280;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                  ">
+            Continue to Thank You Page
+          </button>
+        </div>
+        
+        <p style="color: #666; font-size: 12px; margin: 0;">
+          If you have any issues downloading, please contact support with your order confirmation.
         </p>
-        <button onclick="this.parentElement.parentElement.parentElement.remove()" 
-                style="
-                  margin-top: 15px;
-                  padding: 10px 20px;
-                  background: #6b7280;
-                  color: white;
-                  border: none;
-                  border-radius: 5px;
-                  cursor: pointer;
-                ">
-          Close & Continue
-        </button>
       </div>
     `;
     
     downloadContainer.innerHTML = downloadHtml;
     modalOverlay.appendChild(downloadContainer);
     document.body.appendChild(modalOverlay);
+  }
+
+  // Function to attempt auto-download all files
+  function downloadAllFiles() {
+    FILE_URLS.forEach((url, index) => {
+      setTimeout(() => {
+        // Create hidden iframe to trigger download
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
+        
+        // Clean up iframe after a delay
+        setTimeout(() => {
+          if (document.body.contains(iframe)) {
+            document.body.removeChild(iframe);
+          }
+        }, 3000);
+      }, index * 1500); // 1.5 second delay between each
+    });
+    
+    // Update button
+    const button = event.target;
+    button.innerHTML = '⏳ Downloads starting...';
+    button.disabled = true;
+    
+    setTimeout(() => {
+      button.innerHTML = '✅ Downloads triggered! Check your Downloads folder';
+      button.style.background = '#10b981';
+    }, 2000);
   }
 
   // Function to handle payment before download
