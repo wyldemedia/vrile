@@ -978,7 +978,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
           submitButton.textContent = `Pay $${(PAYMENT_AMOUNT/100).toFixed(2)}`;
         } else if (paymentIntent && paymentIntent.status === 'succeeded') {
           // Payment succeeded
-          messagesDiv.innerHTML = '<p style="color: green;">Payment successful! Starting downloads...</p>';
+          messagesDiv.innerHTML = '<p style="color: green;">Payment successful! Your downloads will start automatically. Please allow downloads if prompted by your browser.</p>';
           console.log('Payment succeeded, PaymentIntent ID:', paymentIntent.id);
           
           // Store payment success
@@ -990,7 +990,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
             console.log('About to start downloads...');
             document.body.removeChild(container.parentNode);
             startDownloadThenRedirect();
-          }, 1500);
+          }, 2000); // Slightly longer delay to let user read the message
         }
       });
       
@@ -1004,52 +1004,35 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
   function startDownloadThenRedirect() {
     console.log('startDownloadThenRedirect called, downloading', FILE_URLS.length, 'files');
     
-    // Download all files in the FILE_URLS array
+    // Download all files in the FILE_URLS array using direct download (no fetch due to CORS)
     FILE_URLS.forEach((url, index) => {
       console.log(`Starting download ${index + 1}:`, url);
       
-      // Extract filename from URL or provide a meaningful name
-      const filename = url.split('/').pop() || `audio-file-${index + 1}.mp3`;
+      // Extract filename from URL and decode it properly
+      let filename = decodeURIComponent(url.split('/').pop()) || `VRile-Audio-${index + 1}.mp3`;
       
-      // Force download using fetch and blob
-      fetch(url)
-        .then(response => {
-          console.log(`Download ${index + 1} response:`, response.status, response.statusText);
-          return response.blob();
-        })
-        .then(blob => {
-          console.log(`Download ${index + 1} blob size:`, blob.size);
-          const a = document.createElement('a');
-          const objectUrl = URL.createObjectURL(blob);
-          a.href = objectUrl;
-          a.download = filename; // Proper filename
-          a.style.display = 'none';
-          document.body.appendChild(a);
-          a.click();
-          console.log(`Download ${index + 1} triggered:`, filename);
-          document.body.removeChild(a);
-          
-          // Clean up the object URL after a delay
-          setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
-        })
-        .catch(error => {
-          console.error('Download failed for:', url, error);
-          // Fallback to original method if fetch fails
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = filename;
-          a.style.display = 'none';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-        });
+      // Clean up the filename to remove unwanted characters
+      filename = filename.replace(/[^\w\s.-]/gi, '').trim();
+      
+      // Create download link and trigger immediately
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.target = '_blank'; // Open in new tab as backup
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        console.log(`Download ${index + 1} triggered:`, filename);
+        document.body.removeChild(a);
+      }, index * 500); // Stagger downloads by 500ms each to avoid browser blocking
     });
 
-    console.log('All downloads triggered, redirecting in', REDIRECT_DELAY_MS, 'ms to:', buildThankYouUrl());
-    // Redirect to thank-you (with tracking params)
+    console.log('All downloads triggered, redirecting in', REDIRECT_DELAY_MS + 2000, 'ms to:', buildThankYouUrl());
+    // Redirect to thank-you (with tracking params) - longer delay to allow downloads
     setTimeout(() => {
       window.location.href = buildThankYouUrl();
-    }, REDIRECT_DELAY_MS);
+    }, REDIRECT_DELAY_MS + 2000);
   }
 
   // Function to handle payment before download
