@@ -1004,7 +1004,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
   function startDownloadThenRedirect() {
     console.log('startDownloadThenRedirect called, downloading', FILE_URLS.length, 'files');
     
-    // Download all files in the FILE_URLS array using direct download (no fetch due to CORS)
+    // Download all files using Netlify function proxy to force download
     FILE_URLS.forEach((url, index) => {
       console.log(`Starting download ${index + 1}:`, url);
       
@@ -1014,25 +1014,35 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
       // Clean up the filename to remove unwanted characters
       filename = filename.replace(/[^\w\s.-]/gi, '').trim();
       
-      // Create download link and trigger immediately
+      // Create download link using Netlify function proxy
       setTimeout(() => {
+        const downloadUrl = `/.netlify/functions/download-file?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename)}`;
+        
         const a = document.createElement('a');
-        a.href = url;
+        a.href = downloadUrl;
         a.download = filename;
-        a.target = '_blank'; // Open in new tab as backup
         a.style.display = 'none';
+        
+        // Add to DOM, click, and remove
         document.body.appendChild(a);
         a.click();
         console.log(`Download ${index + 1} triggered:`, filename);
-        document.body.removeChild(a);
-      }, index * 500); // Stagger downloads by 500ms each to avoid browser blocking
+        
+        // Clean up
+        setTimeout(() => {
+          if (document.body.contains(a)) {
+            document.body.removeChild(a);
+          }
+        }, 100);
+        
+      }, index * 1000); // 1 second delay between downloads to be safe
     });
 
-    console.log('All downloads triggered, redirecting in', REDIRECT_DELAY_MS + 2000, 'ms to:', buildThankYouUrl());
+    console.log('All downloads triggered, redirecting in', REDIRECT_DELAY_MS + 5000, 'ms to:', buildThankYouUrl());
     // Redirect to thank-you (with tracking params) - longer delay to allow downloads
     setTimeout(() => {
       window.location.href = buildThankYouUrl();
-    }, REDIRECT_DELAY_MS + 2000);
+    }, REDIRECT_DELAY_MS + 5000);
   }
 
   // Function to handle payment before download
