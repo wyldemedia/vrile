@@ -1,8 +1,5 @@
-// Privacy-focused download function - no email required
+// Simple download function using basic HTML download links
 function showPrivateDownloadLinks(downloadInfo) {
-  // Detect if user is on mobile
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  
   // Create modal overlay for download links
   const modalOverlay = document.createElement('div');
   modalOverlay.style.cssText = `
@@ -36,18 +33,146 @@ function showPrivateDownloadLinks(downloadInfo) {
   
   let downloadHtml = `
     <h3 style="margin-top: 0; color: #333; font-size: 24px;">🎉 Payment Successful!</h3>
-    <p style="color: #666; margin-bottom: 25px; font-size: 16px;">Your VRile Last Longer Program is ready for private download.</p>
+    <p style="color: #666; margin-bottom: 25px; font-size: 16px;">Your VRile Last Longer Program is ready!</p>
     
-    <div style="background: #ffebee; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-      <p style="color: #c62828; margin: 0; font-size: 13px;">
-        🔐 <strong>Privacy Notice:</strong> No emails required. No tracking. Your purchase is completely private.
+    <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
+      <h4 style="color: #1565c0; margin-top: 0;">📥 Download Your Files</h4>
+      <p style="color: #0d47a1; margin-bottom: 20px; font-size: 14px;">
+        Click each download button below. Files will download to your device:
       </p>
-    </div>
   `;
   
-  if (isMobile) {
-    // Mobile-optimized experience
+  // Add individual download buttons for each file
+  downloadInfo.forEach((item, index) => {
     downloadHtml += `
+      <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <div style="font-weight: bold; color: #333; margin-bottom: 10px;">
+          Audio ${index + 1}: ${item.filename.replace(/PE \+ /, '').replace(/\.mp3$/, '')}
+        </div>
+        <a href="${item.url}" 
+           download="${item.filename}"
+           onclick="markDownloaded(this, ${index + 1})"
+           style="
+             display: inline-block;
+             padding: 12px 24px;
+             background: #2196f3;
+             color: white;
+             text-decoration: none;
+             border-radius: 6px;
+             font-weight: bold;
+             cursor: pointer;
+             transition: background-color 0.3s;
+           "
+           onmouseover="this.style.background='#1976d2'"
+           onmouseout="this.style.background='#2196f3'">
+          📥 Download Audio ${index + 1}
+        </a>
+      </div>
+    `;
+  });
+  
+  downloadHtml += `
+      </div>
+      
+      <div style="margin: 20px 0;">
+        <button onclick="downloadAllAtOnce()" 
+                style="
+                  width: 100%;
+                  padding: 15px;
+                  background: #4caf50;
+                  color: white;
+                  border: none;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  cursor: pointer;
+                  margin-bottom: 10px;
+                ">
+          🚀 Download All 4 Files at Once
+        </button>
+        <p style="color: #666; margin: 0; font-size: 12px;">
+          May trigger multiple download prompts
+        </p>
+      </div>
+      
+      <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+        <p style="color: #e65100; margin: 0; font-size: 13px;">
+          � <strong>Tip:</strong> If downloads don't start, try right-clicking and "Save link as..."
+        </p>
+      </div>
+      
+      <button onclick="closeDownloadModal()" 
+              style="
+                width: 100%;
+                padding: 15px;
+                background: #6b7280;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                cursor: pointer;
+              ">
+        ✅ Continue to Thank You Page
+      </button>
+  `;
+  
+  downloadContainer.innerHTML = downloadHtml;
+  modalOverlay.appendChild(downloadContainer);
+  document.body.appendChild(modalOverlay);
+  
+  // Store reference for later use
+  window.currentDownloadModal = modalOverlay;
+}
+
+// Mark download as completed (visual feedback)
+function markDownloaded(linkElement, fileNumber) {
+  setTimeout(() => {
+    linkElement.style.background = '#4caf50';
+    linkElement.innerHTML = `✅ Downloaded Audio ${fileNumber}`;
+    linkElement.onclick = null; // Prevent multiple clicks
+  }, 500);
+}
+
+// Download all files at once using simple approach
+function downloadAllAtOnce() {
+  const downloads = [
+    { url: "https://d10o3bkrceqyhb.cloudfront.net/Vrile/PE+-+Welcome.mp3", filename: "VRile-Welcome.mp3" },
+    { url: "https://d10o3bkrceqyhb.cloudfront.net/Vrile/PE+-+Sexual+Confidence.mp3", filename: "VRile-Sexual-Confidence.mp3" },
+    { url: "https://d10o3bkrceqyhb.cloudfront.net/Vrile/PE+-+Orgasm+Control.mp3", filename: "VRile-Orgasm-Control.mp3" },
+    { url: "https://d10o3bkrceqyhb.cloudfront.net/Vrile/PE+-+Booster.mp3", filename: "VRile-Booster.mp3" }
+  ];
+  
+  downloads.forEach((download, index) => {
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = download.url;
+      link.download = download.filename;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, index * 1000); // 1 second delay between each download
+  });
+  
+  // Update button
+  const button = event.target;
+  button.innerHTML = '⏳ Starting downloads...';
+  button.disabled = true;
+  
+  setTimeout(() => {
+    button.innerHTML = '✅ All downloads started! Check your Downloads folder';
+    button.style.background = '#4caf50';
+  }, 4000);
+}
+
+// Close modal and redirect
+function closeDownloadModal() {
+  if (window.currentDownloadModal) {
+    document.body.removeChild(window.currentDownloadModal);
+  }
+  // Redirect to thank you page
+  window.location.href = buildThankYouUrl();
+}
       <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
         <h4 style="color: #1565c0; margin-top: 0; font-size: 18px;">📱 Mobile Download</h4>
         <p style="color: #0d47a1; margin-bottom: 15px; font-size: 14px;">
