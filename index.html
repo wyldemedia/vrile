@@ -1004,45 +1004,105 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
   function startDownloadThenRedirect() {
     console.log('startDownloadThenRedirect called, downloading', FILE_URLS.length, 'files');
     
-    // Download all files using Netlify function proxy to force download
-    FILE_URLS.forEach((url, index) => {
-      console.log(`Starting download ${index + 1}:`, url);
-      
-      // Extract filename from URL and decode it properly
+    // Create a download page with direct links (more reliable than forcing downloads)
+    const downloadInfo = FILE_URLS.map((url, index) => {
       let filename = decodeURIComponent(url.split('/').pop()) || `VRile-Audio-${index + 1}.mp3`;
-      
-      // Clean up the filename to remove unwanted characters
       filename = filename.replace(/[^\w\s.-]/gi, '').trim();
-      
-      // Create download link using Netlify function proxy
-      setTimeout(() => {
-        const downloadUrl = `/.netlify/functions/download-file?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename)}`;
-        
-        const a = document.createElement('a');
-        a.href = downloadUrl;
-        a.download = filename;
-        a.style.display = 'none';
-        
-        // Add to DOM, click, and remove
-        document.body.appendChild(a);
-        a.click();
-        console.log(`Download ${index + 1} triggered:`, filename);
-        
-        // Clean up
-        setTimeout(() => {
-          if (document.body.contains(a)) {
-            document.body.removeChild(a);
-          }
-        }, 100);
-        
-      }, index * 1000); // 1 second delay between downloads to be safe
+      return { url, filename };
     });
-
-    console.log('All downloads triggered, redirecting in', REDIRECT_DELAY_MS + 5000, 'ms to:', buildThankYouUrl());
-    // Redirect to thank-you (with tracking params) - longer delay to allow downloads
+    
+    // Show download links to user instead of forcing downloads
+    showDownloadLinks(downloadInfo);
+    
+    console.log('Download links shown, redirecting in', REDIRECT_DELAY_MS + 10000, 'ms to:', buildThankYouUrl());
+    // Redirect after 10 seconds to give user time to download
     setTimeout(() => {
       window.location.href = buildThankYouUrl();
-    }, REDIRECT_DELAY_MS + 5000);
+    }, REDIRECT_DELAY_MS + 10000);
+  }
+
+  function showDownloadLinks(downloadInfo) {
+    // Create modal overlay for download links
+    const modalOverlay = document.createElement('div');
+    modalOverlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 10000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    `;
+    
+    // Create download container
+    const downloadContainer = document.createElement('div');
+    downloadContainer.style.cssText = `
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      text-align: center;
+    `;
+    
+    let downloadHtml = `
+      <h3 style="margin-top: 0; color: #333;">🎉 Payment Successful!</h3>
+      <p style="color: #666; margin-bottom: 30px;">Your VRile Last Longer Program is ready. Click each link below to download your audio files:</p>
+    `;
+    
+    downloadInfo.forEach((item, index) => {
+      downloadHtml += `
+        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+          <strong style="color: #333;">Audio ${index + 1}: ${item.filename}</strong><br>
+          <a href="${item.url}" 
+             download="${item.filename}"
+             style="
+               display: inline-block;
+               margin-top: 10px;
+               padding: 10px 20px;
+               background: #7c3aed;
+               color: white;
+               text-decoration: none;
+               border-radius: 5px;
+               font-weight: bold;
+             "
+             target="_blank">
+            📥 Download Audio ${index + 1}
+          </a>
+        </div>
+      `;
+    });
+    
+    downloadHtml += `
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+        <p style="color: #666; font-size: 14px;">
+          <strong>Instructions:</strong><br>
+          • Right-click any download button and select "Save link as..." if direct click doesn't work<br>
+          • Files will be saved to your Downloads folder<br>
+          • You'll be redirected to the thank you page in 10 seconds
+        </p>
+        <button onclick="this.parentElement.parentElement.parentElement.remove()" 
+                style="
+                  margin-top: 15px;
+                  padding: 10px 20px;
+                  background: #6b7280;
+                  color: white;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                ">
+          Close & Continue
+        </button>
+      </div>
+    `;
+    
+    downloadContainer.innerHTML = downloadHtml;
+    modalOverlay.appendChild(downloadContainer);
+    document.body.appendChild(modalOverlay);
   }
 
   // Function to handle payment before download
