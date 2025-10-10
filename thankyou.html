@@ -106,7 +106,7 @@
             <div class="row">
               <!-- box 1 -->
               
-                <h3 style="color:#ffc107; text-align: center; ">You are just moments away from taking control of your your pleasure</h3>
+                <h3 style="color:#ffc107; text-align: center; ">You are just moments away from taking control of your pleasure</h3>
              
 
             </div>
@@ -185,44 +185,57 @@
           </p>
           
           <div id="beta-signup-form">
-            <div style="max-width: 400px; margin: 0 auto;">
-              <input type="email" 
-                     id="beta-email" 
-                     placeholder="Enter your email for beta access"
-                     style="
-                       width: 100%;
-                       padding: 12px 15px;
-                       border: 2px solid #ddd;
-                       border-radius: 8px;
-                       font-size: 16px;
-                       margin-bottom: 15px;
-                       box-sizing: border-box;
-                     ">
-              
-              <button onclick="signupBetaTester()" 
-                      id="beta-signup-btn"
-                      style="
-                        width: 100%;
-                        background: #7c3aed;
-                        color: white;
-                        border: none;
-                        padding: 12px 20px;
-                        border-radius: 8px;
-                        font-size: 16px;
-                        cursor: pointer;
-                        font-weight: bold;
-                        transition: background 0.3s;
-                      ">
-                🔥 Join Beta Waitlist
-              </button>
-            </div>
-            
-            <p style="font-size: 12px; color: #999; margin-top: 15px;">
-              ✅ Early access to new features<br>
-              ✅ Exclusive beta testing opportunities<br>
-              ✅ No spam, unsubscribe anytime
-            </p>
-          </div>
+  <div style="max-width: 400px; margin: 0 auto;">
+    <input type="text" 
+           id="beta-name" 
+           placeholder="Enter your first name"
+           style="
+             width: 100%;
+             padding: 12px 15px;
+             border: 2px solid #ddd;
+             border-radius: 8px;
+             font-size: 16px;
+             margin-bottom: 15px;
+             box-sizing: border-box;
+           ">
+    
+    <input type="email" 
+           id="beta-email" 
+           placeholder="Enter your email for beta access"
+           style="
+             width: 100%;
+             padding: 12px 15px;
+             border: 2px solid #ddd;
+             border-radius: 8px;
+             font-size: 16px;
+             margin-bottom: 15px;
+             box-sizing: border-box;
+           ">
+    
+    <button onclick="signupBetaTester()" 
+            id="beta-signup-btn"
+            style="
+              width: 100%;
+              background: #7c3aed;
+              color: white;
+              border: none;
+              padding: 12px 20px;
+              border-radius: 8px;
+              font-size: 16px;
+              cursor: pointer;
+              font-weight: bold;
+              transition: background 0.3s;
+            ">
+      🔥 Join Beta Waitlist
+    </button>
+  </div>
+  
+  <p style="font-size: 12px; color: #999; margin-top: 15px;">
+    ✅ Early access to a new range of sessions<br>
+    ✅ Exclusive beta testing opportunities<br>
+    ✅ No spam, unsubscribe anytime
+  </p>
+</div>
           
           <div id="beta-success" style="display: none;">
             <div style="color: #28a745; font-size: 18px; margin-bottom: 15px;">
@@ -328,7 +341,7 @@
 
   <script>
     $("#typed").typed({
-      strings: ["Sensual Meditations", "Experiential Erotica", "100's of Erotic Stories", "Transformational Tantra"],
+      strings: ["Intimate Enhancement", "Premature Ejactulation", "Erectile Dysfunction", "Sexual Confidence", "Stronger Erections  "],
       typeSpeed: 100,
       startDelay: 0,
       backSpeed: 60,
@@ -378,6 +391,7 @@
 <script>
 async function signupBetaTester() {
     const email = document.getElementById('beta-email').value.trim();
+    const name = document.getElementById('beta-name').value.trim();
     const btn = document.getElementById('beta-signup-btn');
     const form = document.getElementById('beta-signup-form');
     const success = document.getElementById('beta-success');
@@ -407,7 +421,7 @@ async function signupBetaTester() {
                 email: email,
                 groups: ['167602988743919011'], // Your group ID
                 fields: {
-                    name: '', // Optional: you could add a name field too
+                    name: name, // Optional: you could add a name field too
                     source: 'VRile Thank You Page'
                 }
             })
