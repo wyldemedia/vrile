@@ -77,7 +77,7 @@
           <ul class="navbar-nav ml-auto">
            
             <li class="nav-item">
-              <div class="btn_block"><a class="nav-link dark_btn" href="#" onclick="handlePurchaseClick(event)">Take Control Tonight — Just $17.99</a>
+              <a class="nav-link dark_btn" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Get Instant Access — $17.99</a>
                
 
               </div>
@@ -136,7 +136,7 @@
              <ul class="app_btn">
             <li>
               <div class="btn_block">
-                <a class="nav-link dark_btn" href="#" onclick="handlePurchaseClick(event)">Last Longer Naturally</a>
+               <a class="nav-link dark_btn" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Last Longer Naturally</a>
                
 
               </div>
@@ -424,7 +424,9 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
                     <ul class="app_btn">
             <li>
               <div class="btn_block">
-                <a class="nav-link dark_btn" href="#" onclick="handlePurchaseClick(event)">Feel Calm, Stay Hard — Start Your Training Now</a>
+                <a class="nav-link dark_btn" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Feel Calm, Stay Hard — $17.99</a>
+
+                
 
                
 
@@ -586,7 +588,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
               <ul class="app_btn">
             <li>
               <div class="btn_block">
-<a class="nav-link dark_btn" href="#" onclick="handlePurchaseClick(event)">Private, Proven, Effective — Start Listening in Minutes</a>
+<a class="nav-link dark_btn" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Join Thousands of Satisfied Men</a>
 
               </div>
               
@@ -629,8 +631,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
               <ul class="app_btn">
             <li>
               <div class="btn_block">
-              <a class="nav-link dark_btn" href="#" onclick="handlePurchaseClick(event)">Last Longer Naturally — Download the Course Now</a>
-              </div>
+<a class="nav-link dark_btn" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Tranform Your Pleasure — Instant Download</a>              </div>
               
 
             </li>
@@ -734,8 +735,8 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
   <!-- Privacy-focused download script -->
   <!-- <script src="privacy-download.js"></script> -->
   
-  <!-- Stripe.js -->
-  <script src="https://js.stripe.com/v3/"></script>
+
+
 
   <script>
     $("#typed").typed({
@@ -784,327 +785,7 @@ Shifting your mindset and freeing you from the pressures of these messages, you 
 
   </script>
 
-  <script>
-  // ---- Stripe Configuration ----
-  const STRIPE_PUBLISHABLE_KEY = 'pk_live_51PFKKsKVf12scDHYdFwpmWQu6bNU6kLFS92AYTmEzWxcxSUErFrOgFZCemP53pGkFXmaesNVUBvarV0takrWP5pj00i1Mvqktg';
-  const PAYMENT_AMOUNT = 1799; // Amount in cents ($17.99)
-  const PRODUCT_NAME = 'VRile Last Longer In Bed Program';
-  
-  // Initialize Stripe
-  const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-  
-  // ---- File Download Config ----
-  const FILE_URLS = [
-    "https://d10o3bkrceqyhb.cloudfront.net/Vrile/downloads/PE+-+Welcome.mp3",
-    "https://d10o3bkrceqyhb.cloudfront.net/Vrile/downloads/PE+-+Sexual+Confidence.mp3",
-    "https://d10o3bkrceqyhb.cloudfront.net/Vrile/downloads/PE+-+Orgasm+Control.mp3",
-    "https://d10o3bkrceqyhb.cloudfront.net/Vrile/downloads/PE+-+Booster.mp3"
-  ];
-  const THANK_YOU_URL = "https://vrile.netlify.app/thankyou";
-
-  // Function to handle payment before download
-  function handlePurchaseClick(e) {
-    e.preventDefault();
-    console.log('Purchase button clicked!');
-    
-    // Check if user has already paid
-    const hasPaid = localStorage.getItem('sensual_awakenings_paid') === 'true';
-    
-    if (hasPaid) {
-      console.log('User has already paid, starting download');
-      showDownloadModal();
-    } else {
-      console.log('User needs to pay, showing payment form');
-      createInlinePaymentForm();
-    }
-  }
-
-  // Create inline payment form
-  function createInlinePaymentForm() {
-    console.log('Creating payment form...');
-    
-    // Create modal overlay
-    const modalOverlay = document.createElement('div');
-    modalOverlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 10000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    `;
-    
-    // Create payment form container
-    const paymentContainer = document.createElement('div');
-    paymentContainer.style.cssText = `
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-    `;
-    
-    paymentContainer.innerHTML = `
-      <button id="closePayment" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
-      <h3 style="margin-top: 0; color: #333;">Complete Your Purchase</h3>
-      <p style="color: #666; margin-bottom: 20px;">Secure payment for ${PRODUCT_NAME} - $${(PAYMENT_AMOUNT/100).toFixed(2)}</p>
-      
-      <form id="payment-form">
-        <div id="payment-element" style="margin-bottom: 20px;">
-          <!-- Stripe Payment Element will be inserted here -->
-        </div>
-        
-        <button id="submit-payment" type="button" style="
-          width: 100%;
-          background: #7c3aed;
-          color: white;
-          border: none;
-          padding: 12px;
-          border-radius: 6px;
-          font-size: 16px;
-          cursor: pointer;
-          margin-top: 10px;
-        ">
-          Pay $${(PAYMENT_AMOUNT/100).toFixed(2)}
-        </button>
-        
-        <div id="payment-messages" style="margin-top: 10px;"></div>
-      </form>
-    `;
-    
-    modalOverlay.appendChild(paymentContainer);
-    document.body.appendChild(modalOverlay);
-    
-    // Close button functionality
-    document.getElementById('closePayment').addEventListener('click', () => {
-      document.body.removeChild(modalOverlay);
-    });
-    
-    // Initialize Stripe Elements
-    initializeStripeElements(paymentContainer);
-  }
-
-  // Initialize Stripe payment processing
-  async function initializeStripeElements(container) {
-    const submitButton = container.querySelector('#submit-payment');
-    const messagesDiv = container.querySelector('#payment-messages');
-    
-    try {
-      console.log('Creating payment intent...');
-      
-      // Create PaymentIntent using Netlify Function
-      const response = await fetch('/.netlify/functions/create-payment-intent', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          amount: PAYMENT_AMOUNT,
-          currency: 'usd',
-          product_name: PRODUCT_NAME
-        })
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to create payment intent');
-      }
-      
-      const { client_secret } = await response.json();
-      console.log('Payment intent created successfully');
-      
-      // Initialize Stripe Elements
-      const elements = stripe.elements({
-        clientSecret: client_secret
-      });
-      
-      const paymentElement = elements.create('payment');
-      paymentElement.mount('#payment-element');
-      
-      submitButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-        console.log('Submit payment clicked');
-        
-        // Show loading state
-        submitButton.disabled = true;
-        submitButton.textContent = 'Processing...';
-        messagesDiv.innerHTML = '';
-        
-        // Confirm payment
-        const { error, paymentIntent } = await stripe.confirmPayment({
-          elements,
-          confirmParams: {
-            return_url: window.location.origin + '/payment-success.html',
-          },
-          redirect: 'if_required'
-        });
-        
-        if (error) {
-          console.error('Payment failed:', error);
-          messagesDiv.innerHTML = `<p style="color: red;">Payment failed: ${error.message}</p>`;
-          submitButton.disabled = false;
-          submitButton.textContent = `Pay $${(PAYMENT_AMOUNT/100).toFixed(2)}`;
-        } else if (paymentIntent && paymentIntent.status === 'succeeded') {
-          console.log('Payment succeeded!', paymentIntent.id);
-          messagesDiv.innerHTML = '<p style="color: green;">Payment successful! Preparing your downloads...</p>';
-          
-          // Store payment success
-          localStorage.setItem('sensual_awakenings_paid', 'true');
-          localStorage.setItem('sensual_awakenings_payment_id', paymentIntent.id);
-          
-          setTimeout(() => {
-            document.body.removeChild(container.parentNode);
-            showDownloadModal();
-          }, 2000);
-        }
-      });
-      
-    } catch (error) {
-      console.error('Error initializing payment:', error);
-      container.querySelector('#payment-element').innerHTML = '<p style="color: red;">Payment system unavailable. Please try again later.</p>';
-      submitButton.style.display = 'none';
-    }
-  }
-
-  // Show download modal with simple download links
-  function showDownloadModal() {
-    console.log('Showing download modal');
-    
-    const modalOverlay = document.createElement('div');
-    modalOverlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      z-index: 10000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
-    `;
-    
-    const downloadContainer = document.createElement('div');
-    downloadContainer.style.cssText = `
-      background: white;
-      padding: 40px;
-      border-radius: 15px;
-      max-width: 450px;
-      width: 100%;
-      text-align: center;
-    `;
-    
-    downloadContainer.innerHTML = `
-      <h3 style="margin-top: 0; color: #333; font-size: 24px;">🎉 Payment Successful!</h3>
-      <p style="color: #666; margin-bottom: 30px; font-size: 16px;">Your VRile program is downloading now...</p>
-      
-      <div style="background: #f0f8ff; padding: 20px; border-radius: 8px; margin: 25px 0;">
-        <div id="download-status" style="font-size: 16px; color: #333; margin-bottom: 15px;">⏳ Starting downloads...</div>
-        <div id="download-progress" style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
-          <div id="progress-bar" style="background: #4CAF50; height: 100%; width: 0%; transition: width 0.3s;"></div>
-        </div>
-        <p style="margin-top: 15px; font-size: 14px; color: #666;">
-          💡 Files will appear in your Downloads folder<br>
-          📱 Mobile: Check your Files app or Downloads
-        </p>
-      </div>
-      
-      <button id="continue-btn" onclick="window.location.href='${THANK_YOU_URL}'" 
-              style="
-                width: 100%;
-                padding: 15px;
-                background: #2196F3;
-                color: white;
-                border: none;
-                border-radius: 8px;
-                font-size: 16px;
-                cursor: pointer;
-                opacity: 0.5;
-                pointer-events: none;
-              ">
-        ⏳ Downloads in progress...
-      </button>
-      
-      <button onclick="document.body.removeChild(document.querySelector('.download-modal-overlay'))" 
-              style="
-                background: #666;
-                color: white;
-                padding: 12px 24px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                margin-top: 15px;
-              ">
-        Close
-      </button>
-    `;
-    
-    modalOverlay.className = 'download-modal-overlay';
-    modalOverlay.appendChild(downloadContainer);
-    document.body.appendChild(modalOverlay);
-    
-    // Start automatic downloads
-    startAutomaticDownloads();
-  }
-
-  // Simplified automatic download function
-  async function startAutomaticDownloads() {
-    const files = [
-      {url: 'https://d10o3bkrceqyhb.cloudfront.net/Vrile/downloads/PE+-+Welcome.mp3', name: 'PE - Welcome.mp3'},
-      {url: 'https://d10o3bkrceqyhb.cloudfront.net/Vrile/downloads/PE+-+Booster.mp3', name: 'PE - Booster.mp3'},
-      {url: 'https://d10o3bkrceqyhb.cloudfront.net/Vrile/downloads/PE+-+Sexual+Confidence.mp3', name: 'PE - Sexual Confidence.mp3'},
-      {url: 'https://d10o3bkrceqyhb.cloudfront.net/Vrile/downloads/PE+-+Orgasm+Control.mp3', name: 'PE - Orgasm Control.mp3'}
-    ];
-    
-    const statusDiv = document.getElementById('download-status');
-    const progressBar = document.getElementById('progress-bar');
-    const continueBtn = document.getElementById('continue-btn');
-    
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const progress = ((i) / files.length) * 100;
-      
-      // Update progress
-      progressBar.style.width = `${progress}%`;
-      statusDiv.innerHTML = `⏳ Downloading ${i + 1} of ${files.length}: ${file.name}`;
-      
-      // Create download link and trigger it
-      const link = document.createElement('a');
-      link.href = file.url;
-      link.download = file.name;
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Wait between downloads
-      if (i < files.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 1500)); // 1.5 second delay
-      }
-    }
-    
-    // All downloads complete
-    progressBar.style.width = '100%';
-    statusDiv.innerHTML = '✅ All downloads complete! Check your Downloads folder.';
-    
-    // Enable continue button
-    continueBtn.style.opacity = '1';
-    continueBtn.style.pointerEvents = 'auto';
-    continueBtn.innerHTML = '✅ Continue to Thank You Page';
-    
-    // Auto-redirect after 5 seconds
-    setTimeout(() => {
-      window.location.href = THANK_YOU_URL;
-    }, 5000);
-  }
-  // Remove the old forceDownload and downloadAllFiles functions since we don't need them anymore
-</script>
+ 
 
 <style>
 .download-modal {
