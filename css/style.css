@@ -2526,6 +2526,46 @@ footer .bottom_footer .developer_text a {
     animation: mymove 10s infinite;
 }
 
+/* Add this to your existing style section at the bottom of the page */
+.mobile-cta-btn {
+  background: linear-gradient(45deg, #7c3aed, #6d28d9) !important;
+  border: none !important;
+  padding: 15px 25px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 30px !important;
+  color: white !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+  max-width: 300px !important;
+}
+
+.mobile-cta-btn:hover {
+  background: linear-gradient(45deg, #6d28d9, #5b21b6) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Ensure it only shows on mobile */
+@media (min-width: 992px) {
+  .mobile-only-cta {
+    display: none !important;
+  }
+}
+
+/* Add some breathing room on very small screens */
+@media (max-width: 375px) {
+  .mobile-cta-btn {
+    font-size: 14px !important;
+    padding: 12px 20px !important;
+  }
+}
+
 
 
 
