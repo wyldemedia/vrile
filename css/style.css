@@ -2581,6 +2581,9 @@ footer .bottom_footer .developer_text a {
   .solution-clarifier {
     display: none !important;
   }
+   .mobile-only-cta {
+    display: none !important;
+  }
 }
 
 /* Add some breathing room on very small screens */
@@ -2606,6 +2609,12 @@ footer .bottom_footer .developer_text a {
   
   .mobile-only-cta {
     padding: 0 15px !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .mobile-only-cta {
+    display: flex !important;
   }
 }
 
