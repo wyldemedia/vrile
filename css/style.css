@@ -2569,12 +2569,12 @@ footer .bottom_footer .developer_text a {
 
 /* Add this to your existing style section */
 .solution-clarifier {
-  background: linear-gradient(135deg, #f8f9ff 0%, #e8efff 100%);
+  background: linear-gradient(135deg, #F2ECE7 0%, #e8efff 100%);
   padding: 20px;
   border-radius: 15px;
   margin: 20px auto;
   max-width: 400px;
-  border: 1px solid #e0e7ff;
+  border: 1px solid #F2ECE7;
   box-shadow: 0 2px 10px rgba(124, 58, 237, 0.1);
 }
 
