@@ -553,7 +553,7 @@ header.fixed .navbar {
 .app_btn .nav-link.dark_btn {
     color: var(--white);
     background-color: var(--primery);
-    font-size: 16px;
+    font-size: 22px;
     padding: 9px 40px;
     border-radius: 100px;
     position: relative;
@@ -591,7 +591,7 @@ header.fixed .navbar {
 .navbar-expand-lg .navbar-nav .nav-link.dark_btn {
     color: var(--white);
     background-color: var(--primery);
-    font-size: 16px;
+    font-size: 22px;
     padding: 9px 40px;
     border-radius: 100px;
     position: relative;
