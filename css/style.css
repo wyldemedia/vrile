@@ -2591,6 +2591,7 @@ footer .bottom_footer .developer_text a {
   box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
   transition: all 0.3s ease !important;
   width: 100% !important;
+  margin: auto;
   max-width: 300px !important;
 }
 
