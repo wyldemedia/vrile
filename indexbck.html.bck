@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q22KZ1Y1M1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q22KZ1Y1M1');
+</script>
+
+<script>
+/**
+* Function that captures a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+var captureOutboundLink = function(url) {
+   gtag('event', 'click', {
+     'event_category': 'outbound',
+     'event_label': url,
+     'transport_type': 'beacon',
+     'event_callback': function(){
+       document.location = url;
+     }
+   });
+}
+}
+</script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta Description -->
+  <meta name="description" content="Unlock peace and relaxation with our Meditations, Sleep, and Mindfulness app. Enjoy guided sessions to reduce stress, improve sleep, and enhance mental well-being. Download now to start your journey to a calmer, more mindful life.">
+  <title>Non Medical Solutions for Sexual Wellness</title>
+
+  <!-- icofont-css-link -->
+  <link rel="stylesheet" href="css/icofont.min.css">
+  <!-- Owl-Carosal-Style-link -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <!-- Bootstrap-Style-link -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Aos-Style-link -->
+  <link rel="stylesheet" href="css/aos.css">
+  <!-- Coustome-Style-link -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Responsive-Style-link -->
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.webp" type="image/x-icon">
+  <!-- font 1 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&display=swap" rel="stylesheet">
+  <!-- font 2 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="loader"></div>
+  </div>
+
+
+  <section class = "back_cover">
+  <!-- Header Start -->
+  <header>
+    <!-- container start -->
+    <div class="container">
+      <!-- navigation bar -->
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/Vrile-masthead.png" alt="Logo">
+        </a>  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
+            <span class="toggle-wrap">
+              <span class="toggle-bar"></span>
+            </span>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+           
+            <li class="nav-item">
+              <a class="nav-link dark_btn" onclick="captureOutboundLink('https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0'); return false;" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Take Control Today for Just $17.99</a>
+               
+
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- navigation end -->
+    </div>
+    <!-- container end -->
+  </header>
+
+  
+
+  <!-- Banner-Section-Start -->
+  <section class="banner_section" id="home_sec">
+    <!-- container start -->
+    <div class="container">
+
+       <section class="row_am usp_section">
+      <div class="inner_sec">
+        <!-- container start -->
+          <div class="container">
+            <!-- row start -->
+            <div class="row">
+              <!-- box 1 -->
+              
+                <h1>Transform Your Sex Life: No Pills, Just Results</h1>
+
+<div class="solution-clarifier d-block d-lg-none" style="text-align: center; margin: 15px 0;">
+  <p style="font-size: 18px; font-weight: 600; color: #7c3aed; margin-bottom: 10px;">
+    🎧 Natural Audio Empowerment Program
+  </p>
+  <p style="font-size: 16px; color: #666; margin-bottom: 15px; line-height: 1.4;">
+    No pills • No gimmicks • No side effects<br>
+    <strong>Just proven hypnosis techniques</strong>
+  </p>
+</div>
+
+<div class="mobile-only-cta d-block d-lg-none" style="text-align: center; margin: 20px 0;">
+  <a class="btn btn-primary mobile-cta-btn" 
+     onclick="captureOutboundLink('https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0'); return false;" 
+     href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" 
+     target="_blank">
+    Get The Full Mens <br /> Empowerment Program <br /> $17.99
+  </a>
+</div>
+             
+
+            </div>
+            
+          </div>
+      </div>
+    </section>
+      <!-- row start -->
+      <div class="row">
+        <div class="col-lg-6 col-md-12" data-aos="fade-up" data-aos-duration="1500">
+          <!-- banner text -->
+          <div class="banner_text">
+            <!-- typed text -->
+            <div class="type-wrap">
+              <!-- add static words/sentences here (i.e. text that you don't want to be removed)-->
+              <span id="typed" style="white-space:pre;" class="typed">
+              </span>
+            </div>
+
+            <!-- h1 -->
+            <h2> Regain Control. <br />
+              Reclaim Confidence.<br/> Reignite Satisfaction. <br/> Your Journey to Lasting Intimacy Starts Here</h2>
+            <!-- p -->
+            <p>
+            Using modern hypnosis to discover lasting control and confidence in intimate moments, you can quickly reignite the passionate, confident lover you already are.
+            </p>
+
+             <ul class="app_btn">
+            <li>
+              <div class="btn_block">
+               <a class="nav-link dark_btn" onclick="captureOutboundLink('https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0'); return false;" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Download Now and Transform Your Intimacy</a>
+               
+
+              </div>
+              
+
+            </li>
+            
+            
+          </ul> 
+
+          </div>
+          </div>
+
+          <!-- app buttons -->
+       
+      
+
+   
+
+        <!-- banner image start -->
+        <div class="col-lg-6 col-md-12" >
+
+          <div class="hero_img">
+            <img src="images/cover shot.webp" alt="image">
+
+          </div>
+        </div>
+        <!-- banner image end -->
+
+      </div>
+      <!-- row end -->
+    </div>
+    <!-- container end -->
+  </section>
+  <!-- Banner-Section-end -->
+
+  </section>
+
+  <!-- Page Wraper -->
+  <div class="page_wrapper">
+
+    <!-- usp start -->
+   
+
+    <!-- programs start -->
+    <section class="row_am program_section">      
+      
+
+        <!-- container start -->
+          <div class="container">
+
+<p class="usp_description">From movies to magazines, there's a constant pressure on men to live up to an impossible standard of performance. This creates a cycle of anxiety and self-doubt that can impact your confidence in intimate moments, but it's important to know you are not alone and it is not your fault. There is a natural, effective way to reclaim control without pills or side effects. By shifting your mindset away from these toxic expectations, you can rediscover the confident, passionate man you truly are.
+<br />
+ <div class="btn_block">
+               <a class="nav-link dark_btn" onclick="captureOutboundLink('https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0'); return false;" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">
+<strong>Take the First Step to Confidence—Download Ride The Edge Now and Transform Your Intimate Life Naturally!</strong></a>
+</div>
+<div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+            <span class="title_badge">Last Longer Naturally</span>
+            <!-- h2 -->
+            <h2>Rediscover Satisfaction</h2>
+            <!-- p -->
+            <p>Our 4-part program is designed to help you regain control, rebuild confidence, and reignite satisfaction in your intimate moments. Each audio session is crafted to guide you through relaxation, focus, and mental conditioning techniques that empower you to last longer naturally.</p> 
+            
+          </div>
+
+          <!-- blocks -->
+          <div class="program_blocks">
+            <!-- row -->
+            <div class="row">
+
+              <!-- block -->
+              <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="program_box">
+                  <div class="program_icon"><img src="images/Vrile-blue-icon.webp" alt="image"></div>
+                  <div class="program_text">Release Tension</div>   
+                  <div class="program_description"> As the #1 passion killer, tension can be a major barrier to pleasure. Our program helps you identify and release this tension, paving the way for deeper intimacy and satisfaction.  </div>               
+                </div>
+              </div>
+
+              <!-- block -->
+              <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="program_box">
+                  <div class="program_icon"><img src="images/Vrile-blue-icon.webp" alt="image"></div>
+                  <div class="program_text">Rebuild Sexual Confidence</div>  
+                  <div class="program_description">By learning to release those toxic messages you can rebuild your confidence, inside and outside the bedroom. </div> 
+
+                </div>
+              </div>
+
+                <!-- block -->
+              <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="program_box">
+                  <div class="program_icon"><img src="images/Vrile-blue-icon.webp" alt="image"></div>
+                  <div class="program_text">Regain Control</div>      
+                  <div class="program_description">Reconnect with your body so it responds in the way you want, when you want. </div>            
+                </div>
+              </div>
+
+
+              <!-- block -->
+              <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="program_box">
+                  <div class="program_icon"><img src="images/Vrile-blue-icon.webp" alt="image"></div>
+                  <div class="program_text">Discover Your Authentic Passion</div>             
+                  <div class="program_description"> Once you release yourself from the man they pressure you to be, you can enjoy being the man you are. Authentic, strong, pasisonate.</div> 
+
+                </div>
+              </div>
+
+            
+             
+
+             
+
+            </div>
+          </div>
+          </div>
+    </section>
+
+    <section class="row_am devider"> <img src="images/devider.webp" alt="image"> </section>
+
+    <!-- Features-Section-Start -->
+    <section class="row_am features_section" id="why_sec">
+      <!-- container start -->
+      <div class="container">
+        <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+          <span class="title_badge">Why enjoy Riding the Edge</span>
+          <!-- h2 -->
+          <h2>Transform minutes of frustration into moments of ecstasy</h2>
+          <!-- p -->
+          <p></p>
+        </div>
+        <div class="feature_detail">
+          <!-- feature box left -->
+          <div class="left_data feature_box">
+
+            <!-- feature box -->
+            <div class="data_block color1" data-aos="fade-right" data-aos-duration="1500">
+              <div class="icon">
+                <img src="images/Vrile-cu-icon.webp?v=2" alt="image" >
+              </div>
+              <div class="text">
+                <h6>Grow Your Sensual Confidence</h6>
+                <p>Every audio session has been crafted to escape limiting beliefs while enjoying enhanced sensuality .</p>
+              </div>
+            </div>
+
+            <!-- feature box -->
+            <div class="data_block color2" data-aos="fade-right" data-aos-duration="1500">
+              <div class="icon">
+                <img src="images/Vrile-cu-icon.webp?v=2" alt="image" >
+              </div>
+              <div class="text">
+                <h6>Discover Lasting Control</h6>
+                <p>Transform your pleasure into lasting control, without having to think about it.</p>
+              </div>
+            </div>
+         
+
+           <div class="data_block color2" data-aos="fade-right" data-aos-duration="1500">
+              <div class="icon">
+                <img src="images/Vrile-cu-icon.webp?v=2" alt="image" >
+              </div>
+              <div class="text">
+                <h6>Deepen Intimacy</h6>
+                <p>Find a new level of connection with your partner that leaves you both satisfied</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- feature box right -->
+          <div class="right_data feature_box">
+
+            <!-- feature box -->
+            <div class="data_block color3" data-aos="fade-left" data-aos-duration="1500">
+              <div class="icon">
+                <img src="images/Vrile-cu-icon.webp?v=2" alt="image" >
+              </div>
+              <div class="text">
+                <h6>Release Anxiety</h6>
+                <p>Discover a stress-free pleasure, you don't even need to try for. </p>
+              </div>
+            </div>
+
+            <!-- feature box -->
+            <div class="data_block color4" data-aos="fade-left" data-aos-duration="1500">
+              <div class="icon">
+                <img src="images/Vrile-cu-icon.webp?v=2" alt="image" >
+              </div>
+              <div class="text">
+                <h6>Be your authentic self</h6>
+                <p>Experience the freedom to explore your desires without judgment or limitation. </p>
+              </div>
+           
+
+          </div>
+          <div class="data_block color4" data-aos="fade-left" data-aos-duration="1500">
+              <div class="icon">
+                <img src="images/Vrile-cu-icon.webp?v=2" alt="image" >
+              </div>
+              <div class="text">
+                <h6>All medication free</h6>
+                <p>No risks or side effects. No pills to pop. Just natural pleasure.  </p>
+              </div>
+            </div>
+
+          </div>
+          <!-- feature image -->
+          <div class="feature_img" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+            <img src="images/cover shot.webp" alt="image" >
+          </div>
+        </div>
+      </div>
+      <!-- container end -->
+    </section>
+    <!-- Features-Section-end -->
+
+   <section class="advance_feature_section row_am" id="how_work_sec">
+      <div class="af_innner">
+        <div class="container">
+
+            <div class="section_title howto" >
+              <span class="title_badge">3 Steps To Lasting Longer</span>
+              <h2>Getting The Most From Ride The Edge</h2>
+              <p>Follow these simple steps to enhance your experience with Ride The Edge.</p>
+            </div>
+
+            <!-- listing -->
+            <div class="af_listing">
+              <!-- row -->
+              <div class="row">
+
+                <div class="col-md-12">
+
+                  <div class="listing_inner">
+                    <!-- blok -->
+                    <div class="af_block" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="img">
+                          <img src="images/Vrile-cu-icon.webp?v=2" alt="image">
+                        </div>
+                        <div class="text">
+                          <h5>Make Time For Yourself</h5>
+                          <p> Prioritize your pleasure and set aside time for self-exploration and transforming your experience. 20 minutes a day initially is usually more than enough</p>
+                        </div>
+                        <div class="process_num">01</div>
+                    </div>
+
+                    <!-- blok -->
+                    <div class="af_block" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="img">
+                          <img src="images/Vrile-cu-icon.webp?v=2" alt="image">
+                        </div>
+                        <div class="text">
+                          <h5> Go With The Flow </h5>
+                          <p> Just let your body react to the suggestions. Don't try to hard or overanalyze, just let it happen in the moment.</p>
+                        </div>
+                        <div class="process_num">02</div>
+                    </div>
+
+                    <!-- blok -->
+                    <div class="af_block" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="img">
+                          <img src="images/Vrile-cu-icon.webp?v=2" alt="image">
+                        </div>
+                        <div class="text">
+                          <h5> Repetition Is The Key </h5>
+                          <p> Your subconscious and body will adapt the new suggestions more deeply, the more often you relax and listen to the sessions. </p>
+                        </div>
+                        <div class="process_num">03</div>
+                    </div>
+
+                  </div>
+
+                <!-- app buttons -->
+                <div class="ctr_app_btn_block">
+                
+                    <ul class="app_btn">
+            <li>
+              <div class="btn_block">
+                <a class="nav-link dark_btn" onclick="captureOutboundLink('https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0'); return false;" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Feel Calm, Stay Hard — $17.99</a>
+
+                
+
+               
+
+              </div>
+              
+
+            </li>
+            
+            
+          </ul> 
+                </div>
+
+                </div>
+              </div>
+              <!-- row -->
+            </div>
+            <!-- listing -->
+
+        </div>
+    </div>
+  </section>
+  <!-- Key Feature Section End -->
+
+ 
+
+  <!-- audio sample start  -->
+ 
+
+  <!-- success stories Section Start -->
+  <section class="key_feature_section row_am white_text" id="stories_sec">
+
+  		<!-- side element left  -->
+    	<div class="kf_side_element left_side"> <img src="images/thumbup.webp" alt="image"> </div>
+    	<!-- side element right  -->
+    	<div class="kf_side_element right_side"> <img src="images/like.webp" alt="image"> </div>
+    	
+      <div class="key_innner">
+
+        <!-- container  -->
+        <div class="container">
+
+          <!-- section title  -->
+          <div class="section_title" >
+            <span class="title_badge">What our listeners say</span>
+            <h2>A Small Selection from the thousands of listeners</h2>
+            <p>Men just like you are transforming their sex lives. Not with drugs or medication, but by realising they aren't the cause of the issue, and with a little shift in mindset they can transform their passion.</p>
+          </div>
+
+          <!-- slider  -->
+          <div id="feature_slider" class="owl-carousel owl-theme" data-aos="fade-up" data-aos-duration="1500">
+
+            <!-- testimonial 1  -->
+            <div class="item">
+              <div class="feature_box">
+
+              
+
+                <div class="txt_blk">
+	                <h6>Craig E.</h6>
+                  <div class="rating">
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                  </div>
+	                <p> <span class="story_bold"> “Just amazing” </span> I have no words to describe how incredible this experience has been for me. My wife is certainly a lot happier now that I can last longer.</p>
+            	</div>
+
+              <div class="quote_img">
+                <img src="images/quote.webp" alt="image">
+              </div>
+
+              </div>
+            </div>
+
+            <!-- testimonial 2  -->
+            <div class="item">
+              <div class="feature_box">
+
+              
+
+                <div class="txt_blk">
+	                <h6>Chris L.</h6>
+                  <div class="rating">
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                  </div>
+	                <p> <span class="story_bold"> “I feel like a man again!" </span> After years of being embarrassed about my performance, I finally feel confident in the bedroom.</p>
+            	</div>
+
+              <div class="quote_img">
+                <img src="images/quote.webp" alt="image">
+              </div>
+
+              </div>
+            </div>
+
+            <!-- testimonial 3  -->
+            <div class="item">
+              <div class="feature_box">
+
+              
+                <div class="txt_blk">
+	                <h6>Dale C.</h6>
+                  <div class="rating">
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                  </div>
+	                <p> <span class="story_bold"> "Amazing!” </span> I didn’t want to rely on pills. These audios helped me relax and last twice as long.</p>
+
+            	</div>
+              
+              <div class="quote_img">
+                <img src="images/quote.webp" alt="image">
+              </div>
+
+              </div>
+            </div>
+
+            <!-- testimonial 4  -->
+            <div class="item">
+              <div class="feature_box">
+
+              
+
+                <div class="txt_blk">
+	                <h6>Jason A.</h6>
+                  <div class="rating">
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                    <span><i class="icofont-star"></i></span>
+                  </div>
+	                <p> <span class="story_bold"> "Magnifique!” </span>I've been busy and low libido lately and boy did you wake my passion up from it's slumber... truly amazing</p>
+
+            	</div>
+              
+              <div class="quote_img">
+                <img src="images/quote.webp" alt="image">
+              </div>
+              
+              </div>
+            </div>
+
+          </div>
+
+            <!-- button  -->
+          	<div class="ctr_cta">
+	          <div class="btn_block">
+
+              <ul class="app_btn">
+            <li>
+              <div class="btn_block">
+<a class="nav-link dark_btn" onclick="captureOutboundLink('https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0'); return false;" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Join Thousands of Satisfied Men</a>
+
+              </div>
+              
+
+            </li>
+            
+            
+          </ul> 
+		      
+
+	          </div>
+			</div>
+
+        </div>
+      </div>
+  </section>
+  <!-- success stories Section End -->
+
+ 
+
+
+    <!-- App-Download-Section-Start -->
+    <section class="row_am download_app" id="download_sec">
+      <!-- Task Block start -->
+      <div class="task_block" data-aos="fade-up" data-aos-duration="1500">
+
+        <!-- row start -->
+        <div class="row">
+          <div class="col-md-6">
+            <!-- task text -->
+            <div class="task_text">
+              <div class="section_title white_text" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                <span class="title_badge">Purchase</span>
+                <h2>Tranform Your Pleasure Today </h2>
+                <p>
+                  Download the complete Ride the Edge course for just $17.99.
+                </p>
+              </div>
+              <!-- app buttons -->
+              <ul class="app_btn">
+            <li>
+              <div class="btn_block">
+<a class="nav-link dark_btn" onclick="captureOutboundLink('https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0'); return false;" href="https://tantricflame.com/?buy-now=487&qty=1&coupon=&ship-via=free_shipping&with-cart=0" target="_blank">Tranform Your Sex Life — Instant Download</a>              </div>
+              
+
+            </li>
+            
+            
+          </ul> 
+            </div>
+          </div>
+          <div class="col-md-6">
+            <!-- task images -->
+            <div class="task_img" data-aos="fade-in" data-aos-duration="1500">
+              <div class="frame_img">
+                <img src="images/COVERFEATURE.webp" alt="image">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- Task Block end -->
+    </section>
+    <!-- App-Download-Section-end -->
+
+    
+   
+
+
+
+
+
+
+      <!-- container end -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ Section End -->
+
+   
+      <!-- container end -->
+    </section>
+    <!-- call to action -->   
+
+    <!-- Footer-Section start -->
+    <footer>
+       
+          <!-- container end -->
+
+          <!-- last footer -->
+          <div class="bottom_footer">
+            <!-- container start -->
+              <div class="container">
+                <!-- row start -->
+                <div class="row">
+                  <div class="col-md-4">
+                      <p>© Copyright 2025. Wylde Media Limited All rights reserved.</p>
+                  </div>
+
+                  <div class="col-md-4">
+
+                  </div>
+
+                  <div class="col-md-4">
+                     
+                  </div>
+              </div>
+              <!-- row end -->
+              </div>
+              <!-- container end -->
+          </div>
+
+        </div>
+
+    </footer>
+    <!-- Footer-Section end -->
+
+    <!-- go top button -->
+    <div class="go_top" id="Gotop">
+      <span><i class="icofont-arrow-up"></i></span>
+    </div>
+
+   
+</div>
+<!-- Wraper End -->
+
+  <!-- Jquery-js-Link -->
+  <script src="js/jquery.js"></script>
+  <!-- owl-js-Link -->
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- bootstrap-js-Link -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- aos-js-Link -->
+  <script src="js/aos.js"></script>
+  <!-- Typed Js Cdn -->
+  <script src='js/typed.min.js'></script>
+  <!-- main-js-Link -->
+  <script src="js/main.js"></script>
+  
+  <!-- Privacy-focused download script -->
+  <!-- <script src="privacy-download.js"></script> -->
+  
+
+
+
+  <script>
+    $("#typed").typed({
+      strings: ["Sexual Confidence", "Last Longer", "Deeper Connections", "Intense Pleasure"],
+      typeSpeed: 100,
+      startDelay: 0,
+      backSpeed: 60,
+      backDelay: 2000,
+      loop: true,
+      cursorChar: "|",
+      contentType: 'html'
+    });
+
+    
+    // Fixed Discount Dish JS
+    $(document).ready(function () {
+      let cardBlock = document.querySelectorAll('.task_block');
+      let topStyle = 120;
+
+      cardBlock.forEach((card) => {
+        card.style.top = `${topStyle}px`;
+        topStyle += 30;
+      })
+
+    }
+    );
+
+    // Scroll Down Window 
+    $(document).ready(function () {
+      // Attach a click event handler to the button
+      $('#scrollButton').click(function () {
+        // Scroll down smoothly 200 pixels from the current position
+        $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
+      });
+    });
+
+    // Multiple Audio player //
+    document.addEventListener('play', function(e){
+    var audios = document.getElementsByTagName('audio');
+    for(var i = 0, len = audios.length; i < len;i++){
+        if(audios[i] != e.target){
+            audios[i].pause();
+        }
+    }
+    }, true);
+
+  </script>
+
+ 
+
+<style>
+.download-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.download-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.download-links {
+    margin: 20px 0;
+}
+
+.download-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 15px 20px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    max-width: 400px;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background: #45a049;
+}
+
+.download-instructions {
+    background: #f0f8ff;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    border-left: 4px solid #2196F3;
+}
+
+.continue-btn {
+    background: #2196F3;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.close-btn {
+    background: #666;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+</style>
+
+</body>
+
+</html>
