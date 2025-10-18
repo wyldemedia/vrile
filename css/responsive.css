@@ -112,6 +112,11 @@
         width: 410px;
     }
 
+    .features_section .feature_detail .hypno_box {
+   
+        width: 90%;
+}
+
     .features_section .feature_detail .left_data {
         padding-left: 55px;
     }
@@ -213,6 +218,10 @@
 
     .features_section .feature_detail .feature_box {
         width: 300px;
+    }
+
+    .features_section .feature_detail .hypno_box {
+        width: 90%;
     }
 
     .features_section .feature_detail .left_data {
@@ -557,6 +566,10 @@
 
     .features_section .feature_detail .feature_box {
         width: 250px;
+    }
+
+     .features_section .feature_detail .hypno_box {
+        width: 90%;
     }
 
     /* key features */

@@ -1279,6 +1279,11 @@ iframe#youtubevideo {
     z-index: 999;
 }
 
+.features_section .feature_detail .hypno_box {
+    text-align: left;
+    z-index: 999;
+}
+
 .features_section .feature_detail .feature_box .data_block {
     margin: 25px 0 25px 0;
     border-radius: 20px;
