@@ -1302,6 +1302,8 @@ iframe#youtubevideo {
     background: #3E3A38;
      border-radius: 40px;
      padding: 30px;
+      justify-content: space-between;
+    margin-top: 40px;
 }
 
 .features_section .feature_detail .feature_box .data_block.color3 {
