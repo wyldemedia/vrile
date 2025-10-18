@@ -1300,6 +1300,8 @@ iframe#youtubevideo {
 
 .features_section .feature_detail .hypno_box .data_block.color5 {
     background: #3E3A38;
+     border-radius: 40px;
+     padding: 30px;
 }
 
 .features_section .feature_detail .feature_box .data_block.color3 {
