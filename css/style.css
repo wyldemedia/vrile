@@ -69,7 +69,7 @@
 /* -----------Css-variable------ */
 
 :root {
-    --primery: #340C7D;
+    --primery: #D97A3A;
     --secondary:#F2ECE7;
     --secondary-lighter:#604551;
     --nutral: #fff9f1;
@@ -203,6 +203,12 @@ h6 {
 .white_text h3,
 .white_text h4 {
     color: var(--white);
+}
+
+.side_line_text {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--secondary);
 }
 
 
@@ -817,7 +823,7 @@ header.fixed .navbar {
 }
 
 .banner_section .banner_text p {
-    font-size: 18px;
+    font-size: 26px;
     padding-right: 100px;
      color: var(--banner_text);
 }
@@ -1281,6 +1287,7 @@ iframe#youtubevideo {
 
 .features_section .feature_detail .hypno_box {
     text-align: left;
+    margin: auto;
     z-index: 999;
 }
 
@@ -2358,7 +2365,7 @@ footer .bottom_footer .developer_text a {
 }
 
 .faq_section .nav-tabs .nav-item button {
-    background-color: #fff;
+    background-color: #F2ECE7;
     padding: 10px 36px;
     border-radius: 10px;
     font-weight: 500;
@@ -2384,10 +2391,11 @@ footer .bottom_footer .developer_text a {
 
 .faq_section .card {
     border: none;
-    background-color: #fff;
+    background-color: #F2ECE7;
     margin-bottom: 20px;
     border-radius: 10px;
     border: solid 1px var(--border);
+    color:#000;
 }
 
 .faq_section .card .card-header {
@@ -2400,7 +2408,7 @@ footer .bottom_footer .developer_text a {
 .faq_section .card .card-header button {
     width: 100%;
     text-align: left;
-    color: var(--secondary);
+    color: var(--bronze);
     text-decoration: none;
     padding: 0;
     font-weight: 700;
@@ -2411,6 +2419,7 @@ footer .bottom_footer .developer_text a {
 
 .faq_section .card .card-header button.collapsed {
     color: #000;
+    background-color: #F2ECE7;
 }
 
 .faq_section .card .card-header button:focus {

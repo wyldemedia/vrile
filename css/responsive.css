@@ -1,5 +1,5 @@
 :root {
-    --primery: #340C7D;
+    --primery: #D97A3A;
     --secondary:#F2ECE7;
     --secondary-lighter:#340c7d;
     --nutral: #fff9f1;
@@ -113,7 +113,7 @@
     }
 
     .features_section .feature_detail .hypno_box {
-   
+        margin-right: 55px;
         width: 90%;
 }
 
@@ -808,10 +808,12 @@
     .banner_section {
         margin-top: 0px;
     }
-
+/*
     .banner_section .banner_text {
-        /*margin-top: -30px;*/
+        margin-top: -30px;
     }
+*/
+
 
     .banner_section .banner_text h1 {
         font-size: 35px;
@@ -839,7 +841,7 @@
     }
 
     .banner_section .banner_slider {
-        /*width: 90%;*/
+        width: 90%;
     }
 
     .banner_section .banner_slider .left_icon {
