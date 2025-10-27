@@ -1019,7 +1019,7 @@ header.fixed .navbar {
   padding: 0;
 }
 
-#features_sec ul li {
+#features_sec ul.interest_list li {
   position: relative;
   display: block;
   padding: 14px 16px 14px 56px; /* space for icon */
