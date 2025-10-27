@@ -324,7 +324,10 @@
         padding: 0 50px;
     }
 
-    
+     .nav-link.dark_btn.center-text-btn {
+    display: block;
+    width: 100%;
+  }
 
     /* navigation section */
     .navbar-toggler-icon {
