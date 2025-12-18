@@ -1115,6 +1115,94 @@ header.fixed .navbar {
 }
 
 
+/* --------- Celebrity Quote Section ---------- */
+
+.celebrity_quote_section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(124, 58, 237, 0.02) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.celebrity_quote_section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.celebrity_quote_section .quote_wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(124, 58, 237, 0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.celebrity_quote_section .quote_icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, var(--purple-color) 0%, #9333ea 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.celebrity_quote_section .quote_icon::before {
+    content: '\201C';
+    font-size: 48px;
+    color: #fff;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.celebrity_quote_section .celebrity_quote {
+    margin: 0 0 30px;
+    padding: 0;
+    border: none;
+}
+
+.celebrity_quote_section .celebrity_quote p {
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-weight: 500;
+    font-style: italic;
+    margin: 0;
+}
+
+.celebrity_quote_section .celebrity_attribution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.celebrity_quote_section .celebrity_name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--purple-color);
+    display: block;
+}
+
+.celebrity_quote_section .celebrity_title {
+    font-size: 16px;
+    color: var(--text-color);
+    opacity: 0.8;
+    display: block;
+}
+
+
 /* --------- Program section ---------- */
 
 .program_section {
